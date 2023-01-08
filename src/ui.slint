@@ -1,0 +1,37 @@
+import { Button, VerticalBox, CheckBox, SpinBox, ComboBox } from "std-widgets.slint";
+
+App := Window {
+    preferred-width: 200px;
+    preferred-height: 100px;
+    default-font-size: 13px;
+    title: "自动对局";
+    property <bool> flag: false;
+    property <bool> find: false;
+
+    callback dianwo;
+    callback dianfind;
+
+    VerticalBox {
+        Rectangle {
+            VerticalBox {
+                btn := Button {
+                    text: flag? "当前状态：已开启": "当前状态：未开启";
+                    font-size: 20px;
+                    clicked => { 
+                        // 开启自动对局
+                        flag = !flag;
+                        dianwo();
+                    }
+                }
+                CheckBox {
+                    text: "自动寻找对局";
+                    checked: false;
+                    toggled => {  
+                        find = !find;
+                        dianfind();
+                    }
+                }
+            }
+        }
+    }
+}

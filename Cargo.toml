@@ -1,0 +1,28 @@
+[package]
+name = "lol_auto"
+version = "0.1.0"
+edition = "2021"
+build = "./src/build.rs"
+description = "League of Legends Auto Find & Accept Matchups."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.3.25"
+regex = "1.7.0"
+reqwest = { version = "0.11.13", features = ["stream"] }
+slint = "0.3.2"
+tokio = { version = "1", features = ["full"] }
+
+[build-dependencies]
+slint-build = "0.3.2"
+
+[package.metadata.bundle]
+name = "lolauto"
+identifier = "com.doe.lolauto"
+icon = ["logo/logo.png"]
+version = "1.0.0"
+copyright = "Copyright (c) LeeeSe 2022. All rights reserved."
+short_description = "League of Legends Auto Find & Accept Matchups."
+
+
